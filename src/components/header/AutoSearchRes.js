@@ -1,17 +1,18 @@
 import React from 'react';
+import { List, ListGroup, ListGroupItem } from 'reactstrap';
 
 const AutoSearchRes = ({ results, onSearchSelect }) => {
     let renderRes = [];
-    if(results) {
+    if (results) {
         renderRes = results.map((result, index) => {
             return (
-                <div>
-                    <button onClick={() => onSearchSelect(result[0])}></button>
-                </div>
+                    <ListGroupItem key={index} onClick={() => onSearchSelect(result[0])}>
+                        {result[0]}
+                    </ListGroupItem>
             )
         })
     }
-    return <div>{renderRes}</div>;
+    return <ListGroup>{renderRes}</ListGroup>;
 }
 
 export default AutoSearchRes;
